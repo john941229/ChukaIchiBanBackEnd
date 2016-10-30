@@ -16,11 +16,11 @@ var cusine = mongoose.model('cusine', {
     description: { type: String, default: '' },
     type: { type: Array, default: [] },
     material: { type: Array, default: [] },
-    steps: {type: Array, default: [] },
+    steps: { type: Array, default: [] },
     a: { type: Number, default: 0 }
 });
 
 module.exports = {
-    'cusine': cusine,
-    'step': step
+    'step': step,
+    'cusine': cusine
 };
