@@ -1,12 +1,15 @@
 const serve = require('koa-static');
 const koa = require('koa');
 
-const excelData = require('./model/excelData');
+const txtData = require('./model/txtData')
+const router = require('./routers/index')
 
 const app = koa();
 
 app.use(serve(__dirname + '/public'));
 
-excelData();
+app.use(router.routes()).use(router.allowedMethods());
+
+txtData()
 
 app.listen(3000);

@@ -1,0 +1,21 @@
+ID	step	step name	text	time/min	imgURL
+100301413	1	解冻、漂洗材料	排骨解冻后放在器皿里用流水漂洗15分钟， 把水流开到最小就好，这样洗过之后排骨蒸出来会更清爽。洗完后能发现水色边清了很多，就说明有用了，量多的话可以冲洗久一点。	15	http://s1.cdn.xiachufang.com/6a9e9a148eb311e6a9a10242ac110002_640w_608h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+100301413	2	腌制	放两勺生粉，用手抓匀，让每一个排骨都沾上，量多的话可以自行斟酌，大概每个排骨都有薄薄一层生粉就好。		http://s1.cdn.xiachufang.com/6adae9e28eb311e6b87c0242ac110003_640w_640h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+100301413	3	腌制	放半勺盐和一点点糖和油抓匀。		
+100301413	4	腌制	重复第2步，放一样分量的生粉（这样可以让味道包裹在排骨上）。最后洒上蒜蓉。 腌制的时间最好在20分钟以上。	20	
+100301413	5	蒸	腌制后就可以放进烧开了水的锅里蒸，两人分量大约8分钟，多的话要就要蒸多点时间。	8	http://s2.cdn.xiachufang.com/6b13585e8eb311e6a9a10242ac110002_640w_640h.jpg?imageView2/2/w/200/interlace/1/q/90
+245796	1	处理材料	三黄鸡杀死后处理好内脏，用水冲洗干净。		http://s2.cdn.xiachufang.com/b86f776a8c0e11e6a9a10242ac110002_193w_157h.jpg?imageView2/2/w/200/interlace/1/q/90
+245796	2	焯水	将鸡放入锅里，加生姜，葱，料酒中火煮开至5分钟左右（这个时间视鸡的大小决定，如果稍大的鸡，就时间长一点）然后关火。	5	http://s2.cdn.xiachufang.com/b88dc1708c0e11e6a9a10242ac110002_194w_156h.jpg?imageView2/2/w/200/interlace/1/q/90
+245796	3	浸泡	盖上锅盖浸泡40-50分钟，这样做的原因是，中火烧开几分钟鸡肉基本断生了，浸泡是让鸡肉吸取所需的热量和水份，做到了让鸡肉吃起一不老不嫩。	45	http://s1.cdn.xiachufang.com/b8af58d08c0e11e6b87c0242ac110003_196w_157h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+245796	4	冷却	浸泡好鸡肉后捞出放入冷却的凉开水中过凉水保持鸡肉皮质细嫩紧滑。		http://s1.cdn.xiachufang.com/b8dbc6868c0e11e6b87c0242ac110003_197w_157h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+245796	5	炒制调料	锅里放入少量油，三成油温的时候把辣椒，三萘，八角这些香料放进锅里炒。炒干水份变得干爽后捞出放凉。		http://s2.cdn.xiachufang.com/b8fe746a8c0e11e6a9a10242ac110002_196w_156h.jpg?imageView2/2/w/200/interlace/1/q/90 ; http://s2.cdn.xiachufang.com/b91e4dc68c0e11e6a9a10242ac110002_195w_155h.jpg?imageView2/2/w/200/interlace/1/q/90
+245796	6	炒制调料	将上一步处理后的材料剁成末，也可以用搅拌机打成粉，不过我们习惯于剁成块状，这样做出来的辣椒油更香。		http://s1.cdn.xiachufang.com/b942b9d68c0e11e6b87c0242ac110003_195w_156h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+245796	7	调制酱料	剁好的辣椒末放一个耐高温的碗里，加入适量豆豉。锅里烧热油，油温先烧到冒青烟时关火，降温至8成热时，把油倒在进辣椒末里浸泡。		http://s1.cdn.xiachufang.com/b962839c8c0e11e6b87c0242ac110003_196w_153h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+245796	8	处理葱姜蒜	姜，蒜用捣蒜器捣成泥。葱切成葱花。		
+245796	9	处理葱姜蒜	姜蒜泥放碗里，调入醋，生抽，白糖，等调料搅拌均匀，然后用筛过滤掉蒜姜的渣。		http://s1.cdn.xiachufang.com/ba4567528c0e11e6a9a10242ac110002_193w_155h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+245796	10	制备调料	把做好的辣椒油只取面上的红油混入调好的汁里，最后撒上芝麻，这个口水鸡的调料就做成了。（如果有花生，可以加点花生进去会更香）。		http://s2.cdn.xiachufang.com/ba85e3f48c0e11e6b87c0242ac110003_196w_158h.jpg?imageView2/2/w/200/interlace/1/q/90
+245796	11	切块鸡肉	鸡肉切成大小合适的块，码放在碗里。		http://s1.cdn.xiachufang.com/bab729c88c0e11e6a9a10242ac110002_205w_308h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+245796	12	淋调味汁	淋上调好的辣椒红油，最后撒上葱花，即可完成。		http://s1.cdn.xiachufang.com/baddde928c0e11e6a9a10242ac110002_206w_308h.jpg@2o_50sh_1pr_1l_200w_90q_1wh
+					
+					
+					

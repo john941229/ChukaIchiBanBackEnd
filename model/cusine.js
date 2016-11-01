@@ -11,13 +11,13 @@ var step = mongoose.model('step', {
 });
 
 var cusine = mongoose.model('cusine', {
-    id: { type: Number, default: 0 },
+    idNumber: { type: Number, default: 0 },
     name: { type: String, default: '' },
     description: { type: String, default: '' },
-    type: { type: Array, default: [] },
+    // tag = type
+    tag: { type: Array, default: [] },
     material: { type: Array, default: [] },
-    steps: { type: Array, default: [] },
-    a: { type: Number, default: 0 }
+    steps: { type: Array, default: [] }
 });
 
 module.exports = {
