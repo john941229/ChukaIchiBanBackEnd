@@ -48,5 +48,9 @@ model.cusine = mongoose.model('cusine', {
   steps: {
     type: Array,
     default: []
+  },
+  imgUrl: {
+    type: String,
+    default: ''
   }
 })

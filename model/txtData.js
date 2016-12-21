@@ -1,5 +1,5 @@
 const fs = require('fs')
-const Cusine = require('./cusine')
+const Cusine = require('./index')
 
 var readFile = function*(fileName) {
   let fsPromise = new Promise((resolve, reject) => {
@@ -28,8 +28,10 @@ var dealCusineData = function*(data) {
       let data = dataArray[i]
       if (i === 3 || i === 4) {
         let tmArray = data.split(';')
-        if (tmArray.length > 1 && tmArray[tmArray.length - 1] !== '') {
+        if (tmArray.length > 1) {
+          tmArray.splice(tmArray.length - 1, 1)
           propertyArray.push(tmArray)
+          console.log(tmArray)
         } else {
           propertyArray.push([tmArray[0] || ''])
         }
@@ -37,12 +39,14 @@ var dealCusineData = function*(data) {
         propertyArray.push(data)
       }
     }
+    console.log(propertyArray)
     cusines.push({idNumber: parseInt(propertyArray[0]),
                 name: propertyArray[1],
                 description: propertyArray[2],
                 tag: propertyArray[3],
                 material: propertyArray[4],
-                steps: []})
+                steps: [],
+                imgUrl: propertyArray[5]})
     propertyArray = []
   }
   let info = yield Cusine.create(cusines)
@@ -75,15 +79,15 @@ var dealStepData = function*(data) {
         name: datas[2],
         text: datas[3],
         time: parseInt(datas[4]) || 0,
-        imgUrl: datas[5]
+        imgUrl: datas[5] || ''
       })
     }
-    let info = yield Cusine.findByIdAndUpdate(parseInt(id), {steps: stepArray})
-    if (info) {
-      console.log('step success');
-    } else {
-      console.log('step failed');
-    }
+  }
+  let info = yield Cusine.findByIdAndUpdate(parseInt(id), {steps: stepArray})
+  if (info) {
+    console.log('step success');
+  } else {
+    console.log('step failed');
   }
 }
 

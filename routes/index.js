@@ -1,9 +1,14 @@
 const router = require('koa-router')();
-const textData = require('../model/txtData')
-var txtData = require('../model/txtData')
+const txtData = require('../model/txtData'),
+  model = require('../model')
 
-router.get('/', function * (next) {
+router.get('/', function * () {
   yield txtData()
+  this.response.body = 'Hello'
 });
+
+router.get('/tag', function * () {
+  this.response.body = yield model.findByTag(this.request.query.tag)
+})
 
 module.exports = router;
