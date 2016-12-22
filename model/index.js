@@ -14,7 +14,7 @@ Cusine.create = function * (data) {
 
 Cusine.find = function * (query, options) {
   options = (options === undefined) ? '' : options
-  let info = yield CusineModel.find(query).then((data) => {
+  let info = yield CusineModel.find(query, options).then((data) => {
     return data
   }).catch((err) => {
     console.log(err)
@@ -28,6 +28,11 @@ Cusine.findByTag = function * (tag) {
   return info
 }
 
+Cusine.findStepsById = function * (id) {
+  let info = yield this.find({ 'idNumber': id }, 'steps -_id')
+  return info
+}
+
 Cusine.update = function * (query, data) {
   let info = yield CusineModel.findOneAndUpdate(query, data).then(() => {
     return true
@@ -38,7 +43,7 @@ Cusine.update = function * (query, data) {
   return info
 }
 
-Cusine.findByIdAndUpdate = function * (id, data) {
+Cusine.updateById = function * (id, data) {
   let info = yield this.update({idNumber: id}, data)
   return info
 }

@@ -65,7 +65,7 @@ var dealStepData = function*(data) {
     let dataStringNoR = dataString.split('\r')[0]
     let datas = dataStringNoR.split('\t')
     if (id !== '' && id !== datas[0]) {
-      let info = yield Cusine.findByIdAndUpdate(parseInt(id), {steps: stepArray})
+      let info = yield Cusine.updateById(parseInt(id), {steps: stepArray})
       if (info) {
         console.log('step success');
       } else {
@@ -83,7 +83,7 @@ var dealStepData = function*(data) {
       })
     }
   }
-  let info = yield Cusine.findByIdAndUpdate(parseInt(id), {steps: stepArray})
+  let info = yield Cusine.updateById(parseInt(id), {steps: stepArray})
   if (info) {
     console.log('step success');
   } else {
