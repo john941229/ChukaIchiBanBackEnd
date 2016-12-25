@@ -23,8 +23,18 @@ Cusine.find = function * (query, options) {
   return info
 }
 
+Cusine.findAll = function * () {
+  let info = yield this.find({}, '-_id -__v -steps')
+  return info
+}
+
 Cusine.findByTag = function * (tag) {
-  let info = yield CusineModel.find({ 'tag': tag }, '-_id -__v -steps')
+  let info = yield this.find({ 'tag': tag }, '-_id -__v -steps')
+  return info
+}
+
+Cusine.findByName = function * (name) {
+  let info = yield this.find({ 'name': new RegExp(`\w*${name}\w*`) })
   return info
 }
 

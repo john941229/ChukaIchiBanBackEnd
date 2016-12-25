@@ -45,4 +45,15 @@ router.get('/id', function * () {
   this.response.body = { steps: data[0].steps }
 })
 
+router.get('/search', function * () {
+  let data = yield model.findByName(this.request.query.name)
+  this.response.body = { results: data }
+})
+
+router.get('/all', function * () {
+  let data = yield model.findAll()
+  console.log(data)
+  this.response.body = { results: data }
+})
+
 module.exports = router;
