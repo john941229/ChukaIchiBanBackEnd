@@ -1,6 +1,7 @@
 const router = require('koa-router')();
 const txtData = require('../model/txtData'),
-  model = require('../model')
+  model = require('../model'),
+  cusine = model.Cusine
 
 router.get('/', function * () {
   yield txtData()
@@ -8,7 +9,7 @@ router.get('/', function * () {
 });
 
 router.get('/tag', function * () {
-  let data = yield model.findByTag(this.request.query.tag)
+  let data = yield cusine.findByTag(this.request.query.tag)
   this.response.body = { results: data }
 })
 
@@ -41,17 +42,17 @@ router.get('/sp', function * () {
 })
 
 router.get('/id', function * () {
-  let data = yield model.findStepsById(this.request.query.id)
+  let data = yield cusine.findStepsById(this.request.query.id)
   this.response.body = { steps: data[0].steps }
 })
 
 router.get('/search', function * () {
-  let data = yield model.findByName(this.request.query.name)
+  let data = yield cusine.findByName(this.request.query.name)
   this.response.body = { results: data }
 })
 
 router.get('/all', function * () {
-  let data = yield model.findAll()
+  let data = yield cusine.findAll()
   console.log(data)
   this.response.body = { results: data }
 })

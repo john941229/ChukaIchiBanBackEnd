@@ -54,3 +54,14 @@ model.cusine = mongoose.model('cusine', {
     default: ''
   }
 })
+
+model.user = mongoose.model('user', {
+  username: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+})
