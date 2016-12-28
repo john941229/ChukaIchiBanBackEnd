@@ -13,8 +13,7 @@ User.create = function * (data) {
   })
 }
 
-User.find = function * (query, options) {
-  options = (options === undefined) ? '' : options
+User.find = function * (query, options = '') {
   return yield UserModel.find(query, options).then((data) => {
     return (data.length !== 0)
   }).catch((err) => {

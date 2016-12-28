@@ -11,8 +11,7 @@ Cusine.create = function * (data) {
   })
 }
 
-Cusine.find = function * (query, options) {
-  options = (options === undefined) ? '' : options
+Cusine.find = function * (query, options = '') {
   return yield CusineModel.find(query, options).then((data) => {
     return data
   }).catch((err) => {
