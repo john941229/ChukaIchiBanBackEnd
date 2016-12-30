@@ -8,7 +8,7 @@ var model = exports
 model.step = mongoose.model('step', {
   name: {
     type: String,
-    default: ''
+    required: true
   },
   text: {
     type: String,
@@ -27,11 +27,11 @@ model.step = mongoose.model('step', {
 model.cusine = mongoose.model('cusine', {
   idNumber: {
     type: Number,
-    default: 0
+    required: true
   },
   name: {
     type: String,
-    default: ''
+    required: true
   },
   description: {
     type: String,
