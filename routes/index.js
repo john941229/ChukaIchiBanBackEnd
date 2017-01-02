@@ -83,7 +83,7 @@ router.get('/sp', function * () {
 })
 
 router.get('/id', function * () {
-  let data = yield cusine.findStepsById(this.request.query.cusineId)
+  let data = yield cusine.findStepsById(this.request.query.id)
   this.response.body = { steps: data[0].steps }
 })
 
