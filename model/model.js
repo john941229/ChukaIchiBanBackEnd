@@ -63,6 +63,10 @@ model.user = mongoose.model('user', {
   password: {
     type: String,
     required: true
+  },
+  star: {
+    type: Array,
+    default: []
   }
 })
 

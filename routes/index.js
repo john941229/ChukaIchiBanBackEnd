@@ -3,7 +3,8 @@ const router = require('koa-router')()
 const txtData = require('../model/txtData'),
   model = require('../model'),
   cusine = model.Cusine,
-  Special = model.Special
+  Special = model.Special,
+  User = model.User
 
 router.get('/', function * () {
   // yield txtData()
@@ -82,7 +83,7 @@ router.get('/sp', function * () {
 })
 
 router.get('/id', function * () {
-  let data = yield cusine.findStepsById(this.request.query.id)
+  let data = yield cusine.findStepsById(this.request.query.cusineId)
   this.response.body = { steps: data[0].steps }
 })
 

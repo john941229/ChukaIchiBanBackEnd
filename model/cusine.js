@@ -52,7 +52,7 @@ Cusine.update = function * (query, data) {
   return yield CusineModel.findOneAndUpdate(query, data).then(() => {
     return true
   }).catch((err) => {
-    // console.log(err)
+    console.log(err)
     return false
   })
 }

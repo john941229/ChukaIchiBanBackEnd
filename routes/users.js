@@ -16,4 +16,20 @@ router.post('/login', function * () {
   this.response.body = !!userInfo.length ? `${userInfo[0]._id},${userInfo[0].username}` :''
 })
 
+router.get('/hasStared', function * () {
+  console.log(this.request.query.id)
+  console.log(this.request.query.userId)
+
+  let userData = yield User.findById(this.request.query.userId || ''),
+    hasStared = false
+  if (userData.length) {
+    let userInfo = userData[0]
+    if (userInfo.star.indexOf(this.request.query.id) !== -1) {
+      hasStared = true
+    }
+  }
+
+  this.response.body = hasStared
+})
+
 module.exports = router;
