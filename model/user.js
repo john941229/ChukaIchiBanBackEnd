@@ -15,7 +15,7 @@ User.create = function * (data) {
 
 User.find = function * (query, options = '') {
   return yield UserModel.find(query, options).then((data) => {
-    return (data.length !== 0)
+    return data
   }).catch((err) => {
     console.log(err)
     return false
@@ -24,5 +24,5 @@ User.find = function * (query, options = '') {
 
 User.login = function * (data) {
   data.password = md5(data.password)
-  return yield this.find(data)
+  return yield this.find(data, '-__v -password')
 }

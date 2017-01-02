@@ -6,7 +6,8 @@ var app = require('koa')(),
 
 const index = require('./routes/index'),
   users = require('./routes/users'),
-  cusine = require('./routes/cusine')
+  cusine = require('./routes/cusine'),
+  special = require('./routes/special')
 
 // global middlewares
 app.use(views('views', {
@@ -22,6 +23,7 @@ app.use(require('koa-static')(__dirname + '/public'));
 koa.use('', index.routes(), index.allowedMethods());
 koa.use('/users', users.routes(), users.allowedMethods());
 koa.use('/cusine', cusine.routes(), cusine.allowedMethods())
+koa.use('/special', special.routes(), special.allowedMethods())
 
 // mount root routes
 app.use(koa.routes());

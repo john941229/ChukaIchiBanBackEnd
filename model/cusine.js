@@ -24,6 +24,18 @@ Cusine.findAll = function * () {
   return yield this.find({}, '-_id -__v -steps')
 }
 
+Cusine.findArrayByIds = function * (ids) {
+  let array = []
+  for (let id of ids) {
+    array.push(yield this.findById(id))
+  }
+  return array
+}
+
+Cusine.findById = function * (id) {
+  return yield this.find({ 'idNumber': id}, '-_id -__v -steps')
+}
+
 Cusine.findByTag = function * (tag) {
   return yield this.find({ 'tag': tag }, '-_id -__v -steps')
 }

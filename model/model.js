@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/ChukaIchiBan')
 
-var model = exports
+let model = exports
 
 model.step = mongoose.model('step', {
   name: {
@@ -63,5 +63,20 @@ model.user = mongoose.model('user', {
   password: {
     type: String,
     required: true
+  }
+})
+
+model.special = mongoose.model('special', {
+  sid: {
+    type: Number,
+    required: true
+  },
+  name: {
+    type: String,
+    default: ''
+  },
+  item: {
+    type: Array,
+    default: []
   }
 })
