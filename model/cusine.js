@@ -27,7 +27,7 @@ Cusine.findAll = function * () {
 Cusine.findArrayByIds = function * (ids) {
   let array = []
   for (let id of ids) {
-    array.push(yield this.findById(id))
+    array.push((yield this.findById(id))[0])
   }
   return array
 }

@@ -7,7 +7,7 @@ const txtData = require('../model/txtData'),
   User = model.User
 
 router.get('/', function * () {
-  yield txtData()
+  // yield txtData()
   this.response.body = 'Hello'
 });
 
@@ -103,6 +103,11 @@ router.get('/management', function * () {
   console.log(data)
 
   yield this.render('management', { cusines: data })
+})
+
+router.get('/collection', function * () {
+  let data = yield User.collection(this.query.userId)
+  this.response.body = { results: data }
 })
 
 module.exports = router;

@@ -23,7 +23,11 @@ router.post('/edit', function * () {
 })
 
 router.get('/star', function * () {
-  this.response.body = yield User.starCusine(this.query.userId, this.query.cusineId)
+  this.response.body = yield User.starCusine(this.query.userId, this.query.id)
+})
+
+router.post('/delete', function * () {
+
 })
 
 module.exports = router

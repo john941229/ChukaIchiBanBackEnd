@@ -2,7 +2,9 @@ doctype html
 
 head
   title Management
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
 body
   section.hero.is-primary
     .hero-body
@@ -11,7 +13,7 @@ body
         p.subtitle Management The Cusines
   .section
     .container
-      table.table.is-narrow
+      table.table
         thead
           tr
             th Name
@@ -25,8 +27,35 @@ body
               td=cusine.description
               td=cusine.imgUrl
               td.is-icon
-                a(href='#')
-                  i.fa.fa-github
+                a.is-info(href='#')
+                  i.fa.fa-edit
               td.is-icon
-                a(href='#')
-                  i.fa.fa-delete
+                a.is-danger(href='#')
+                  i.fa.fa-close
+  .modal.deleteModal
+    .modal-background
+    .modal-content
+      .box
+        p.title Are you sure to delete this cusine?
+        form.form(method='post' action='/cusine/delete')
+          input(type='text' name='cusineId' style='display: none')
+          p.control
+            button.button.is-danger(type='submit') Yes
+            button.button.is-primary.deleteModalClose No
+  script.
+    $(
+      function () {
+        $('.is-danger').each(function () {
+          $(this).click(function () {
+            $('.modal.deleteModal').addClass('is-active')
+            $('html').addClass('is-clipped')
+          })
+        })
+
+        $('.deleteModalClose').click(function (e) {
+          e.preventDefault()
+          $('.modal.deleteModal').removeClass('is-active')
+          $('html').removeClass('is-clipped')
+        })
+      }
+    )

@@ -1,5 +1,6 @@
 const md5 = require('md5')
-const UserModel = require('./model').user
+const UserModel = require('./model').user,
+  Cusine = require('./cusine')
 
 let User = exports
 
@@ -38,6 +39,12 @@ User.starCusine = function * (userId, cusineId) {
   } else {
     return yield this.update({ '_id': userId }, { $pull: { star: cusineId } })
   }
+}
+
+User.collection = function * (userId) {
+  let userStar = (yield this.find({ '_id': userId }))[0]['star']
+  console.log(userStar)
+  return yield Cusine.findArrayByIds(userStar)
 }
 
 User.update = function * (query, data) {
