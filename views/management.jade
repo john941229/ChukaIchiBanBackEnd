@@ -1,0 +1,32 @@
+doctype html
+
+head
+  title Management
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css')
+body
+  section.hero.is-primary
+    .hero-body
+      .container
+        p.title Management
+        p.subtitle Management The Cusines
+  .section
+    .container
+      table.table.is-narrow
+        thead
+          tr
+            th Name
+            th Description
+            th ImageUrl
+            th(colspan='2') Operation
+        tbody
+          each cusine in cusines
+            tr
+              td=cusine.name
+              td=cusine.description
+              td=cusine.imgUrl
+              td.is-icon
+                a(href='#')
+                  i.fa.fa-github
+              td.is-icon
+                a(href='#')
+                  i.fa.fa-delete

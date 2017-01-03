@@ -60,3 +60,7 @@ Cusine.update = function * (query, data) {
 Cusine.updateById = function * (id, data) {
   return yield this.update({idNumber: id}, data)
 }
+
+Cusine.delete = function * () {
+
+}

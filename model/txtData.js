@@ -1,5 +1,5 @@
 const fs = require('fs')
-const Cusine = require('./index')
+const Cusine = require('./index').Cusine
 
 var readFile = function*(fileName) {
   let fsPromise = new Promise((resolve, reject) => {

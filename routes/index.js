@@ -7,7 +7,7 @@ const txtData = require('../model/txtData'),
   User = model.User
 
 router.get('/', function * () {
-  // yield txtData()
+  yield txtData()
   this.response.body = 'Hello'
 });
 
@@ -96,6 +96,13 @@ router.get('/all', function * () {
   let data = yield cusine.findAll()
   console.log(data)
   this.response.body = { results: data }
+})
+
+router.get('/management', function * () {
+  let data = yield cusine.findAll()
+  console.log(data)
+
+  yield this.render('management', { cusines: data })
 })
 
 module.exports = router;
