@@ -33,6 +33,7 @@ User.login = function * (data) {
 }
 
 User.starCusine = function * (userId, cusineId) {
+  console.log((yield this.find({ '_id': userId }))[0])
   let userStar = (yield this.find({ '_id': userId }))[0]['star']
   if (userStar.indexOf(cusineId) === -1) {
     return yield this.update({ '_id': userId }, { $push: { star: cusineId } })

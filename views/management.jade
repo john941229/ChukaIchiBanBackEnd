@@ -13,6 +13,11 @@ body
         p.subtitle Management The Cusines
   .section
     .container
+      p.control
+        a.button.is-info
+          span.icon.is-small
+            i.fa.fa-plus
+          span New Cusine
       table.table
         thead
           tr
@@ -22,37 +27,119 @@ body
             th(colspan='2') Operation
         tbody
           each cusine in cusines
-            tr
+            tr(cusineId=`${cusine.idNumber}`)
               td=cusine.name
               td=cusine.description
               td=cusine.imgUrl
               td.is-icon
-                a.is-info(href='#')
+                a.isEdit(href='#')
                   i.fa.fa-edit
               td.is-icon
-                a.is-danger(href='#')
+                a.is-danger(href='#' style='color: #ff1f4b')
                   i.fa.fa-close
+  .modal.editModal
+    .modal-background
+    .modal-content
+      .box
+        form.form(method='post' action='/cusine/edit')
+          input.editId(type='text' name='idNumber' style='display: none')
+          label.label Name
+          p.control
+            input.input(type='text' name='name' placeholder='Cusine Name')
+          label.label Description
+            p.control
+              input.input(type='text' name='description' placeholder='Cusine Description')
+          label.label ImageUrl
+            p.control
+              input.input(type='text' name='imgUrl' placeholder='Image Url')
+          label.label Tag
+            p.control
+              input.input(type='text' name='tag' placeholder='Cusine Tag')
+          label.label Material
+            p.control
+              input.input(type='text' name='material' placeholder='Cusine Material')
+          label.label Steps
+            p.control
+              input.input(type='text' name='steps' placeholder='Cusine Steps')
+          p.control
+            button.button.is-primary(type='submit') Edit
+            | &nbsp;
+            button.button.is-danger.editModalCancel Cancel
+  .modal.addModal
+    .modal-background
+    .modal-content
+      .box
+        form.form(method='post' action='/cusine/add')
+          label.label Name
+          p.control
+            input.input(type='text' name='name' placeholder='Cusine Name')
+          label.label IdNumber
+          p.control
+            input.input(type='text' name='idNumber' placeholder='Cusine Id')
+          label.label Description
+            p.control
+              input.input(type='text' name='description' placeholder='Cusine Description')
+          label.label ImageUrl
+            p.control
+              input.input(type='text' name='imgUrl' placeholder='Image Url')
+          label.label Tag
+            p.control
+              input.input(type='text' name='tag' placeholder='Cusine Tag')
+          label.label Material
+            p.control
+              input.input(type='text' name='material' placeholder='Cusine Material')
+          label.label Steps
+            p.control
+              input.input(type='text' name='steps' placeholder='Cusine Steps')
+          p.control
+            button.button.is-primary.addModalAdd(type='submit') Add
+            | &nbsp;
+            button.button.is-danger.addModalCancel Cancel
   .modal.deleteModal
     .modal-background
     .modal-content
       .box
-        p.title Are you sure to delete this cusine?
+        p.subtitle Are you sure to delete this cusine?
         form.form(method='post' action='/cusine/delete')
-          input(type='text' name='cusineId' style='display: none')
+          input.deleteId(type='text' name='cusineId' style='display: none')
           p.control
-            button.button.is-danger(type='submit') Yes
-            button.button.is-primary.deleteModalClose No
+            button.button.is-danger.deleteModalDelete(type='submit') Delete
+            | &nbsp;
+            button.button.is-primary.deleteModalCancel Cancel
   script.
     $(
       function () {
-        $('.is-danger').each(function () {
+        $('a.is-info').click(function () {
+          $('.modal.addModal').addClass('is-active')
+          $('html').addClass('is-clipped')
+        })
+
+        $('.addModalCancel').click(function (e) {
+          e.preventDefault()
+          $('.modal.addModal').removeClass('is-active')
+          $('html').removeClass('is-clipped')
+        })
+
+        $('a.isEdit').each(function () {
           $(this).click(function () {
-            $('.modal.deleteModal').addClass('is-active')
+            console.log('hello')
+            $('.modal.editModal').addClass('is-active')
             $('html').addClass('is-clipped')
+
+            $('.editId').val($(this).parent().parent().attr('cusineId'))
           })
         })
 
-        $('.deleteModalClose').click(function (e) {
+        $('a.is-danger').each(function () {
+          $(this).click(function () {
+            $('.modal.deleteModal').addClass('is-active')
+            $('html').addClass('is-clipped')
+
+            $('.deleteId').val($(this).parent().parent().attr('cusineId'))
+          })
+        })
+
+        $('.deleteModalCancel').click(function (e) {
           e.preventDefault()
           $('.modal.deleteModal').removeClass('is-active')
           $('html').removeClass('is-clipped')

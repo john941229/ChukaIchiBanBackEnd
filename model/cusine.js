@@ -61,6 +61,11 @@ Cusine.updateById = function * (id, data) {
   return yield this.update({idNumber: id}, data)
 }
 
-Cusine.delete = function * () {
-
+Cusine.delete = function * (id) {
+  return yield CusineModel.findOneAndRemove({ idNumber: id }).then(() => {
+    return true
+  }).catch((err) => {
+    console.log(err)
+    return false
+  })
 }

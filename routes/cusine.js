@@ -1,25 +1,32 @@
 const router = require('koa-router')()
 
 const model = require('../model'),
-  cusine = model.Cusine,
+  Cusine = model.Cusine,
   User = model.User
 
 router.post('/add', function * () {
   let data = this.request.body
-  data.tag = JSON.parse(data.tag || '[]')
-  data.material = JSON.parse(data.material || '[]')
-  data.steps = JSON.parse(data.steps || '[]')
+  data.tag = JSON.parse((data.tag === '') ? '[]' : data.tag)
+  data.material = JSON.parse((data.material === '') ? '[]' : data.material)
+  data.steps = JSON.parse((data.steps === '') ? '[]' : data.steps)
 
-  this.response.body = yield cusine.create(data)
+  yield Cusine.create(data)
+
+  this.redirect('/management')
 })
 
 router.post('/edit', function * () {
-  let data = this.request.body
-  data.tag = JSON.parse(data.tag || '[]')
-  data.material = JSON.parse(data.material || '[]')
-  data.steps = JSON.parse(data.steps || '[]')
+  let data = this.request.body,
+    idNumber = data.idNumber
+  data.tag = JSON.parse((data.tag === '') ? '[]' : data.tag)
+  data.material = JSON.parse((data.material === '') ? '[]' : data.material)
+  data.steps = JSON.parse((data.steps === '') ? '[]' : data.steps)
 
-  this.response.body = yield cusine.updateById(data.idNumber, data)
+  console.log(data)
+
+  yield Cusine.updateById(idNumber, data)
+
+  this.redirect('/management')
 })
 
 router.get('/star', function * () {
@@ -27,7 +34,9 @@ router.get('/star', function * () {
 })
 
 router.post('/delete', function * () {
+  yield Cusine.delete(this.request.body.cusineId)
 
+  this.redirect('/management')
 })
 
 module.exports = router
